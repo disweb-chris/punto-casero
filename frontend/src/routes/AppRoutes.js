@@ -6,7 +6,9 @@ import MenuPage from "../pages/MenuPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import ProtectedRoute from "./ProtectedRoute";
 import PaymentPage from "../pages/PaymentPage";
-import MainLayout from "../components/MainLayout"; // Importar el layout
+import MainLayout from "../components/MainLayout"; 
+import Checkout from "../components/Checkout";
+import RestaurantPanel from '../components/RestaurantPanel';
 
 const AppRoutes = () => {
     return (
@@ -18,6 +20,8 @@ const AppRoutes = () => {
                 <Route path="/menu/:id" element={<ProductDetailPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/registro" element={<RegisterPage />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/restaurant" element={<RestaurantPanel />} />
 
                 {/* Rutas protegidas */}
                 <Route
