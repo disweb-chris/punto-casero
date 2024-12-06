@@ -6,27 +6,30 @@ import MenuPage from "../pages/MenuPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import ProtectedRoute from "./ProtectedRoute";
 import PaymentPage from "../pages/PaymentPage";
+import MainLayout from "../components/MainLayout"; // Importar el layout
 
 const AppRoutes = () => {
     return (
-        <Routes>
-            {/* Rutas públicas */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/menu" element={<MenuPage />} />
-            <Route path="/menu/:id" element={<ProductDetailPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/registro" element={<RegisterPage />} />
+        <MainLayout>
+            <Routes>
+                {/* Rutas públicas */}
+                <Route path="/" element={<HomePage />} />
+                <Route path="/menu" element={<MenuPage />} />
+                <Route path="/menu/:id" element={<ProductDetailPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/registro" element={<RegisterPage />} />
 
-            {/* Rutas protegidas */}
-            <Route
-                path="/pago"
-                element={
-                    <ProtectedRoute>
-                        <PaymentPage /> 
-                    </ProtectedRoute>
-                }
-            />
-        </Routes>
+                {/* Rutas protegidas */}
+                <Route
+                    path="/pago"
+                    element={
+                        <ProtectedRoute>
+                            <PaymentPage />
+                        </ProtectedRoute>
+                    }
+                />
+            </Routes>
+        </MainLayout>
     );
 };
 

@@ -1,7 +1,4 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
-import useAuth from "../hooks/firebase/useAuth";
 import useProducts from "../hooks/firebase/useProducts";
 
 const ProductDetailPage = () => {
@@ -12,15 +9,11 @@ const ProductDetailPage = () => {
     if (!product) return <p>Producto no encontrado</p>;
 
     return (
-        <div>
-            <Header />
-            <main style={{ padding: "2rem" }}>
-                <h1>{product.nombre}</h1>
-                <p>Descripción: {product.descripcion || "Sin descripción"}</p>
-                <p>Precio: ${product.precio}</p>
-            </main>
-            <Footer />
-        </div>
+        <main style={{ padding: "2rem" }}>
+            <h1>{product.nombre}</h1>
+            <p>Descripción: {product.descripcion || "Sin descripción"}</p>
+            <p>Precio: ${product.precio}</p>
+        </main>
     );
 };
 
