@@ -1,31 +1,28 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
 import MenuPage from "../pages/MenuPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import ProtectedRoute from "./ProtectedRoute";
+import PaymentPage from "../pages/PaymentPage";
 
 const AppRoutes = () => {
     return (
         <Routes>
-            {/* Ruta pública */}
+            {/* Rutas públicas */}
             <Route path="/" element={<HomePage />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/menu/:id" element={<ProductDetailPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/registro" element={<RegisterPage />} />
 
-            {/* Ruta protegida */}
+            {/* Rutas protegidas */}
             <Route
-                path="/menu"
+                path="/pago"
                 element={
                     <ProtectedRoute>
-                        <MenuPage />
-                    </ProtectedRoute>
-                }
-            />
-            <Route
-                path="/menu/:id"
-                element={
-                    <ProtectedRoute>
-                        <ProductDetailPage />
+                        <PaymentPage /> 
                     </ProtectedRoute>
                 }
             />

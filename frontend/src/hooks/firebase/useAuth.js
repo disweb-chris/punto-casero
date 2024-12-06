@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../../services/firebase/firebaseAuth";
+import { AuthContext } from "../../context/AuthContext";
 
 const useAuth = () => {
+    const { user } = useContext(AuthContext); // Acceso al usuario autenticado desde el contexto
     const [error, setError] = useState(null);
 
     const login = async (email, password) => {
@@ -21,7 +23,7 @@ const useAuth = () => {
         }
     };
 
-    return { login, logout, error };
+    return { user, login, logout, error }; // Incluye el usuario autenticado
 };
 
 export default useAuth;

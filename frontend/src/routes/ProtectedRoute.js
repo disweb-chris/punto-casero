@@ -1,10 +1,11 @@
 import { Navigate } from "react-router-dom";
-import useAuth from "../hooks/firebase/useAuth";
+import useAuth from "../hooks/firebase/useAuth"; 
 
 const ProtectedRoute = ({ children }) => {
     const { user } = useAuth();
 
-    // Si no hay usuario autenticado, redirigir al login
+    console.log("Usuario autenticado en ProtectedRoute:", user);
+
     if (!user) {
         return <Navigate to="/login" />;
     }

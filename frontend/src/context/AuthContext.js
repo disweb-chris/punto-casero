@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../services/firebase/firebaseAuth";
 
-const AuthContext = createContext();
+const AuthContext = createContext(); // Creación del contexto
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log("Estado de autenticación cambiado:", currentUser);
             setUser(currentUser);
             setLoading(false);
         });
@@ -29,3 +30,5 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
     return useContext(AuthContext);
 };
+
+export { AuthContext }; // Exportación del contexto
