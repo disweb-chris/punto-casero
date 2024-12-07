@@ -9,6 +9,7 @@ import PaymentPage from "../pages/PaymentPage";
 import MainLayout from "../components/MainLayout"; 
 import Checkout from "../components/Checkout";
 import RestaurantPanel from '../components/RestaurantPanel';
+import ProfilePage from "../pages/ProfilePage";
 
 const AppRoutes = () => {
     return (
@@ -29,6 +30,14 @@ const AppRoutes = () => {
                     element={
                         <ProtectedRoute>
                             <PaymentPage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/perfil"
+                    element={
+                        <ProtectedRoute>
+                            <ProfilePage />
                         </ProtectedRoute>
                     }
                 />

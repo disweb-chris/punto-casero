@@ -62,3 +62,25 @@ export const updateOrderStatus = async (id, status) => {
     throw error; // Lanza el error para que el componente lo maneje
   }
 };
+
+// Obtener pedidos del usuario
+export const fetchOrders = async (userId) => {
+  try {
+      const response = await fetch(`${API_URL}?userId=${userId}`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+      });
+
+      if (!response.ok) {
+          const error = await response.json();
+          throw new Error(error.message || 'Error al obtener los pedidos');
+      }
+
+      return response.json();
+  } catch (error) {
+      console.error("Error al obtener los pedidos:", error.message);
+      throw error;
+  }
+};
